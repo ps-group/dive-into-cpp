@@ -99,6 +99,14 @@ TEST_CASE("Multiply vectors on scal", "[Vector3f]")
     REQUIRE(v4.z == 16);
 }
 
+TEST_CASE("Normalize", "[Vector3f]")
+{
+    Vector3f v1 = normalize(Vector3f{2, 3, 4});
+    REQUIRE(v1.x == Approx(0.371391f));
+    REQUIRE(v1.y == Approx(0.557086f));
+    REQUIRE(v1.z == Approx(0.742781f));
+}
+
 TEST_CASE("Comparison operators", "[Vector3f]")
 {
     // Обычное конструирование при объявлении.
