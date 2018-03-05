@@ -117,11 +117,15 @@ inline Vector3f cross(const Vector3f& a, const Vector3f& b)
 */
 
 // Возвращает расстояние между двумя векторами в виде числа
-/*
-inline float distance(const Vector3f& a, const Vector3f& b)
+
+inline float distance(const Vector3f &a, const Vector3f &b)
 {
+    float dist = (b.x - a.x) * (b.x - a.x);
+    dist += (b.y - a.y) * (b.y - a.y);
+    dist += (b.z - a.z) * (b.z - a.z);
+
+    return std::sqrt(dist);
 }
-*/
 
 // Возвращает нормализованный вектор (вектор единичной длины, имеющий то же направлени)
 /*
