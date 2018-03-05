@@ -23,15 +23,31 @@ TEST_CASE("Can be constructed", "[Vector3f]")
     REQUIRE(v2.z == 42);
 
     // Конструирование списком инициализации (C++11) - более универсальный приём.
-    Vector3f v3 = { 5, -11, -5.5f };
+    Vector3f v3 = {5, -11, -5.5f};
     REQUIRE(v3.x == 5);
     REQUIRE(v3.y == -11);
     REQUIRE(v3.z == -5.5f);
 
     // Универсальное конструирование (C++11) - ещё более универсальное
-    Vector3f v4 = { 18, -110, 0.1f };
+    Vector3f v4 = {18, -110, 0.1f};
     REQUIRE(v4.x == 18);
     REQUIRE(v4.y == -110);
     REQUIRE(v4.z == 0.1f);
 }
 
+TEST_CASE("Division operator", "[Vector3f]")
+{
+    // Проверка operator /
+    Vector3f v1(2, 4, 6);
+    Vector3f v2 = v1 / 2;
+    REQUIRE(v2.x == Approx(1));
+    REQUIRE(v2.y == Approx(2));
+    REQUIRE(v2.z == Approx(3));
+
+    // Проверка operator /=
+    Vector3f v3{3, 6, 9};
+    v3 /= 3;
+    REQUIRE(v3.x == Approx(1));
+    REQUIRE(v3.y == Approx(2));
+    REQUIRE(v3.z == Approx(3));
+}
