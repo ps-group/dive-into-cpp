@@ -132,8 +132,8 @@ inline float distance(const Vector3f &a, const Vector3f &b)
 }
 
 // Возвращает нормализованный вектор (вектор единичной длины, имеющий то же направлени)
-/*
-inline Vector3f normalize(const Vector3f& value)
+inline Vector3f normalize(const Vector3f &value)
 {
+    float norme = std::sqrt(value.x * value.x + value.y * value.y + value.z * value.z);
+    return (Vector3f{value.x / norme, value.y / norme, value.z / norme});
 }
-*/
