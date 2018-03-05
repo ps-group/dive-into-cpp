@@ -35,6 +35,19 @@ TEST_CASE("Can be constructed", "[Vector3f]")
     REQUIRE(v4.z == 0.1f);
 }
 
+
+TEST_CASE("Calculates distance", "[Vector3f]")
+{
+    float d1 = distance(Vector3f{3, 5, 1}, Vector3f{5, -5, 0});
+    REQUIRE(d1 == Approx(10.247f));
+
+    float d2 = distance(Vector3f{1, 2, 1}, Vector3f{2, -7, 5});
+    REQUIRE(d2 == Approx(9.8994949366f));
+
+    float d3 = distance(Vector3f{1, 0, 1}, Vector3f{1, 0, 0});
+    REQUIRE(d3 == Approx(1.0f));
+}
+
 TEST_CASE("Multiply vectors on scal", "[Vector3f]")
 {
     Vector3f v1 = Vector3f{2, 3, 4} * (-4);
@@ -57,3 +70,4 @@ TEST_CASE("Multiply vectors on scal", "[Vector3f]")
     REQUIRE(v4.y == -6);
     REQUIRE(v4.z == 16);
 }
+
