@@ -65,6 +65,27 @@ struct Vector3f
     }
     */
 
+    // Возвращает частное от покомпонентного деления вектора на скаляр
+    /*
+    Vector3f operator/(float scale) const
+    {
+    }
+    */
+
+    // Делит покомпонентно вектор на переданный скаляр
+    /*
+    Vector3f& operator/=(float scale)
+    {
+    }
+    */
+
+    // Выполняет покомпонентное сравнение двух векторов на равенство
+    /*
+    bool operator==(const Vector3f& a, const Vector3f& a) const
+    {
+    }
+    */
+
     // Выполняет покомпонентное сравнение двух векторов на равенство
     /*
     bool operator==(const Vector3f& a, const Vector3f& a) const
