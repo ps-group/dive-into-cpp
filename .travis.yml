@@ -16,7 +16,7 @@ install:
   - source ci/travis/install-env-$TRAVIS_OS_NAME.sh
 
 script:
-  # project build script
+  # project vector3 build script
   - mkdir build
   - cd vector3
   - g++ Vector3f_tests.cpp -o ../build/vector3
