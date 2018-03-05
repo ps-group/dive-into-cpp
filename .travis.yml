@@ -1,0 +1,23 @@
+dist: trusty
+sudo: required
+language: cpp
+
+os:
+  - linux
+
+compiler:
+  - gcc
+
+env:
+  - TARGET_CPU=amd64 BUILD_CONFIGURATION=Release CI_NAME=TRAVIS
+
+install:
+  # build environment setup script
+  - source ci/travis/install-env-$TRAVIS_OS_NAME.sh
+
+script:
+  # project build script
+  - mkdir build
+  - cd vector3
+  - g++ Vector3f_tests.cpp -o ../build/vector3
+  - build/vector3
