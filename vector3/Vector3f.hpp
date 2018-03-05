@@ -84,11 +84,10 @@ struct Vector3f
     }
 
     // Выполняет покомпонентное сравнение двух векторов на равенство
-    /*
-    bool operator==(const Vector3f& a, const Vector3f& a) const
+    bool operator==(const Vector3f &a) const
     {
+        return ((a.x == this->x) && (a.y == this->y) && (a.z == this->z));
     }
-    */
 
     // Выполняет покомпонентное сравнение двух векторов на равенство
     /*
@@ -98,11 +97,11 @@ struct Vector3f
     */
 
     // Выполняет покомпонентное сравнение двух векторов на неравенство
-    /*
-    bool operator!=(const Vector3f& a, const Vector3f& a) const
+
+    bool operator!=(const Vector3f &a) const
     {
+        return !(a == *this);
     }
-    */
 };
 
 // Возвращает скалярное произведение двух векторов.

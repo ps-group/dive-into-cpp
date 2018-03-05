@@ -98,3 +98,17 @@ TEST_CASE("Multiply vectors on scal", "[Vector3f]")
     REQUIRE(v4.y == -6);
     REQUIRE(v4.z == 16);
 }
+
+TEST_CASE("Comparison operators", "[Vector3f]")
+{
+    // Обычное конструирование при объявлении.
+    Vector3f v1(1, 2, 5);
+    Vector3f v2(1, 2, 5);
+    REQUIRE(v1 == v1);
+    REQUIRE(v1 == v2);
+    REQUIRE((v1 != v2) == false);
+
+    Vector3f v3(2, 0, 1);
+    REQUIRE((v1 == v3) == false);
+    REQUIRE(v1 != v3);
+}
