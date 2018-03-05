@@ -52,18 +52,21 @@ struct Vector3f
     */
 
     // Возвращает покомпонентное произведение вектора на скаляр
-    /*
+
     Vector3f operator*(float scale) const
     {
+        return {x * scale, y * scale, z * scale};
     }
-    */
 
     // Умножает покомпонентно вектор на переданный скаляр
-    /*
-    Vector3f& operator*=(float scale)
+
+    Vector3f &operator*=(float scale)
     {
+        x *= scale;
+        y *= scale;
+        z *= scale;
+        return *this;
     }
-    */
 
     // Возвращает частное от покомпонентного деления вектора на скаляр
     /*
