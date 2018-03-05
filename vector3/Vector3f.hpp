@@ -52,18 +52,21 @@ struct Vector3f
     */
 
     // Возвращает покомпонентное произведение вектора на скаляр
-    /*
+
     Vector3f operator*(float scale) const
     {
+        return {x * scale, y * scale, z * scale};
     }
-    */
 
     // Умножает покомпонентно вектор на переданный скаляр
-    /*
-    Vector3f& operator*=(float scale)
+
+    Vector3f &operator*=(float scale)
     {
+        x *= scale;
+        y *= scale;
+        z *= scale;
+        return *this;
     }
-    */
 
     // Возвращает частное от покомпонентного деления вектора на скаляр
     Vector3f operator/(float scale) const
@@ -118,11 +121,15 @@ inline Vector3f cross(const Vector3f& a, const Vector3f& b)
 */
 
 // Возвращает расстояние между двумя векторами в виде числа
-/*
-inline float distance(const Vector3f& a, const Vector3f& b)
+
+inline float distance(const Vector3f &a, const Vector3f &b)
 {
+    float dist = (b.x - a.x) * (b.x - a.x);
+    dist += (b.y - a.y) * (b.y - a.y);
+    dist += (b.z - a.z) * (b.z - a.z);
+
+    return std::sqrt(dist);
 }
-*/
 
 // Возвращает нормализованный вектор (вектор единичной длины, имеющий то же направлени)
 /*
