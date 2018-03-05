@@ -69,18 +69,19 @@ struct Vector3f
     }
 
     // Возвращает частное от покомпонентного деления вектора на скаляр
-    /*
     Vector3f operator/(float scale) const
     {
+        return Vector3f{this->x / scale, this->y / scale, this->z / scale};
     }
-    */
 
     // Делит покомпонентно вектор на переданный скаляр
-    /*
-    Vector3f& operator/=(float scale)
+    Vector3f &operator/=(float scale)
     {
+        this->x /= scale;
+        this->y /= scale;
+        this->z /= scale;
+        return *this;
     }
-    */
 
     // Выполняет покомпонентное сравнение двух векторов на равенство
     /*

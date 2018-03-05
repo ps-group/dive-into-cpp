@@ -35,6 +35,34 @@ TEST_CASE("Can be constructed", "[Vector3f]")
     REQUIRE(v4.z == 0.1f);
 }
 
+TEST_CASE("Division operator", "[Vector3f]")
+{
+    // Проверка operator /
+    Vector3f v1{2, 4, 6};
+    Vector3f v2 = v1 / 2;
+    REQUIRE(v2.x == Approx(1));
+    REQUIRE(v2.y == Approx(2));
+    REQUIRE(v2.z == Approx(3));
+
+    Vector3f v3{12.6f, 15.2f, -14.8f};
+    v3 = v3 / 2.5f;
+    REQUIRE(v3.x == Approx(5.04f));
+    REQUIRE(v3.y == Approx(6.08f));
+    REQUIRE(v3.z == Approx(-5.92f));
+
+    // Проверка operator /=
+    Vector3f v4{3, 6, 9};
+    v4 /= 3;
+    REQUIRE(v4.x == Approx(1));
+    REQUIRE(v4.y == Approx(2));
+    REQUIRE(v4.z == Approx(3));
+
+    Vector3f v6{-2.5f, -7.5f, -12.5f};
+    v6 /= -2.5f;
+    REQUIRE(v6.x == Approx(1));
+    REQUIRE(v6.y == Approx(3));
+    REQUIRE(v6.z == Approx(5));
+}
 
 TEST_CASE("Calculates distance", "[Vector3f]")
 {
@@ -70,4 +98,3 @@ TEST_CASE("Multiply vectors on scal", "[Vector3f]")
     REQUIRE(v4.y == -6);
     REQUIRE(v4.z == 16);
 }
-
