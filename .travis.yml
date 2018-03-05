@@ -19,4 +19,4 @@ script:
   # project build script
   - cd vector3
   - g++ Vector3f_tests.cpp -o vector3
-  - vector3
+  - ./vector3
