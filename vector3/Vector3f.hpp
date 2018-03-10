@@ -17,11 +17,11 @@ struct Vector3f
     }
 
     // Возвращает длину (модуль) вектора
-    /*
+
     float length() const
     {
+        return std::hypot(x, y);
     }
-    */
 
     // Возвращает сумму двух векторов
     /*
@@ -38,18 +38,21 @@ struct Vector3f
     */
 
     // Возвращает разность двух векторов
-    /*
-    Vector3f operator-(const Vector3f& other) const
+
+    Vector3f operator-(const Vector3f &other) const
     {
+        return {x - other.x, y - other.y, z - other.z};
     }
-    */
 
     // Вычитает из вектора переданный вектор
-    /*
-    Vector3f& operator-=(const Vector3f& other)
+
+    Vector3f &operator-=(const Vector3f &other)
     {
+        x -= other.x;
+        y -= other.y;
+        z -= other.z;
+        return *this;
     }
-    */
 
     // Возвращает покомпонентное произведение вектора на скаляр
 
