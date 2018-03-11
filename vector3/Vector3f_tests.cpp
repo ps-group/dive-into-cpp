@@ -130,3 +130,21 @@ TEST_CASE("Comparison operators", "[Vector3f]")
     REQUIRE((v1 == v3) == false);
     REQUIRE(v1 != v3);
 }
+
+TEST_CASE("Subtraction operator", "[Vector3f]")
+{
+	// Проверка оператор вычитания /
+	Vector3f v1{ 8, 6, 4 };
+	Vector3f v2{ 4, 3, -4 };
+
+	Vector3f v3 = v1 - v2;
+	REQUIRE(v3.x == Approx(4));
+	REQUIRE(v3.y == Approx(3));
+	REQUIRE(v3.z == Approx(8));
+
+
+	Vector3f v3 -= v1;
+	REQUIRE(v3.x == Approx(-4));
+	REQUIRE(v3.y == Approx(-3));
+	REQUIRE(v3.z == Approx(4));
+}
