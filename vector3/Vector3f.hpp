@@ -38,22 +38,22 @@ struct Vector3f
     */
 
     // Возвращает разность двух векторов
-    /*
-    Vector3f operator-(const Vector3f& other) const
-    {
-    }
-    */
+	Vector3f operator-(const Vector3f &other) const
+	{
+		return { x - other.x, y - other.y, z - other.z };
+	}
 
-    // Вычитает из вектора переданный вектор
-    /*
-    Vector3f& operator-=(const Vector3f& other)
-    {
-    }
-    */
+	// Вычитает из вектора переданный вектор
+	Vector3f &operator-=(const Vector3f &other)
+	{
+		x -= other.x;
+		y -= other.y;
+		z -= other.z;
+		return *this;
+	}
 
     // Возвращает покомпонентное произведение вектора на скаляр
-
-    Vector3f operator*(float scale) const
+	Vector3f operator*(float scale) const
     {
         return {x * scale, y * scale, z * scale};
     }
