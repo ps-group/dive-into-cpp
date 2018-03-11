@@ -113,11 +113,14 @@ inline float dot(const Vector3f& a, const Vector3f& b)
 
 // Возвращает векторное произведение двух векторов.
 // См. https://www.mathsisfun.com/algebra/vectors-cross-product.html
-/*
-inline Vector3f cross(const Vector3f& a, const Vector3f& b)
+
+inline Vector3f cross(const Vector3f &a, const Vector3f &b)
 {
+    float cx = a.z * b.z - a.z * b.y;
+    float cy = a.z * b.x - a.x * b.y;
+    float cz = a.x * b.y - a.y * b.y;
+    return {cx, cy, cz};
 }
-*/
 
 // Возвращает расстояние между двумя векторами в виде числа
 

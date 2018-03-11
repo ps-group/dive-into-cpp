@@ -6,33 +6,43 @@
 // Включаем заголовок, где мы описали структуру
 #include "Vector3f.hpp"
 
-// В C++ есть много способов вызвать один и тот же конструктор.
-// Мы попробуем большинство из них.
-TEST_CASE("Can be constructed", "[Vector3f]")
+// Тест функции cross()
+TEST_CASE("Can cross vectors", "[Vector3f]")
 {
     // Обычное конструирование при объявлении.
-    Vector3f v1(1, 2, 5);
-    REQUIRE(v1.x == 1);
-    REQUIRE(v1.y == 2);
-    REQUIRE(v1.z == 5);
+    Vector3f v1, v2, v3; 
+    v1.x = 0.0;
+    v1.y = 0.0;
+    v1.x = 0.0;
+    v2.x = 0.0;
+    v2.y = 0.0;
+    v2.z = 0.0;
+    v3 = cross(v1, v2);
+    REQUIRE(v3.x == 0.0);
+    REQUIRE(v3.y == 0.0);
+    REQUIRE(v3.z == 0.0);
 
-    // Явный вызов конструктора, затем присваивание.
-    Vector3f v2 = Vector3f(-1, 29, 42);
-    REQUIRE(v2.x == -1);
-    REQUIRE(v2.y == 29);
-    REQUIRE(v2.z == 42);
+    // Конструирование списком инициализации (C++11).      
+    Vector3f v4 = {4.0, 5.0, 6.0};
+    Vector3f v5 = {7.0, 8.0, 9.0};
+    Vector3f v6 = cross(v4, v5);
+    REQUIRE(v6.x == 6.0);
+    REQUIRE(v6.y == 10.0);
+    REQUIRE(v6.z == -8.0);
 
-    // Конструирование списком инициализации (C++11) - более универсальный приём.
-    Vector3f v3 = {5, -11, -5.5f};
-    REQUIRE(v3.x == 5);
-    REQUIRE(v3.y == -11);
-    REQUIRE(v3.z == -5.5f);
-
-    // Универсальное конструирование (C++11) - ещё более универсальное
-    Vector3f v4 = {18, -110, 0.1f};
-    REQUIRE(v4.x == 18);
-    REQUIRE(v4.y == -110);
-    REQUIRE(v4.z == 0.1f);
+    // Конструирование списком инициализации (C++11).     
+    Vector3f v7 = {-1.0, -1.0, -1.0};
+    Vector3f v8 = {1.0, 1.0, 1.0};
+    Vector3f v9 = cross(v7, v8);
+    REQUIRE(v9.x == 0.0);
+    REQUIRE(v9.y == 0.0);
+    REQUIRE(v9.z == 0.0);
+    
+    // Конструирование списком инициализации (C++11).  
+    Vector3f v10 = cross(Vector3f{1.0, 1.0, 1.0}, Vector3f{1.0, 1.0, 1.0});
+    REQUIRE(v10.x == 0.0);
+    REQUIRE(v10.y == 0.0);
+    REQUIRE(v10.z == 0.0);
 }
 
 TEST_CASE("Division operator", "[Vector3f]")
